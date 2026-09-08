@@ -1,20 +1,45 @@
-// Lab_2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// lab2 main.cpp : This file contains the 'main' function. Program execution begins and ends there.
 
 #include <iostream>
+#include <fstream>
+#include <string>
+#include "GetFileName.h"
 
-int main()
+using namespace std;
+
+int main(int argc, char* argv[])
 {
-    std::cout << "Hello World!\n";
-}
+	//get the file name from the command line
+	string baseName;
+	baseName = GetFileName(argc, argv);
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+	//declare a variable to hold the file handle
+	string line;
+	ifstream fileInput(baseName + ".in");
+	ofstream fileOutput(baseName + ".out");
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+	int fileNum;
+
+	//open the file given by the user to read the numbers from
+	fileInput.open(baseName + ".in");
+
+	//read a line of text from the file and operate on that line
+	if (fileInput.is_open()) {
+
+	// while there is data in the file, store number from current line into fileNum, cant use getliine because it will read the line but then using >> to assign fileNum will not work because the line has already been read and itll skip to the next line
+		while (fileInput >> fileNum) {
+			if (isHarshad(fileNum)) {
+				fileOutput << fileNum << " is a Harshad number" << endl;
+			}//if
+			else {
+				fileOutput << fileNum << " is not a Harshad number" << endl;
+			}//else
+		}//while()
+
+		fileInput.close();
+		fileOutput.close();
+	} //if
+
+	return 0;
+} //main() 
+
