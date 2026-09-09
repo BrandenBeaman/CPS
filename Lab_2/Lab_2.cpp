@@ -8,28 +8,28 @@
 using namespace std;
 
 int main(int argc, char* argv[])
-{
+{   
+	string line;
+    string baseName;
+    int fileNum = 0;
+
 	//get the file name from the command line
-	string baseName;
 	baseName = GetFileName(argc, argv);
 
-	//declare a variable to hold the file handle
-	string line;
+	//file handle for input and output files
 	ifstream fileInput;
 	ofstream fileOutput;
 
-	int fileNum = 0;
-
-	//open the file given by the user to read the numbers from
+	//open the file given by the user to read the numbers from, concadnate with .in and .out to create the input and output file names
 	fileInput.open(baseName + ".in");
 	fileOutput.open(baseName + ".out");
 
-	//read a line of text from the file and operate on that line
+	//if the file was opened successfully read the numbers from the file and check if they are harshad numbers or not, then write the result to the output file
 	if (fileInput.is_open()) {
 
-		// while there is data in the file, store number from current line into fileNum, cant use getliine because it will read the line but then using >> to assign fileNum will not work because the line has already been read and itll skip to the next line
 		while (getline(fileInput, line)) {
 
+			//convert the line to an integer
 			fileNum = stoi(line);
 
 			if (isHarshad(fileNum)) {
