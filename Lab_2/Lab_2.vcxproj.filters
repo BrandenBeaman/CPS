@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GetFileName.h">
+    <ClInclude Include="harshad.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
