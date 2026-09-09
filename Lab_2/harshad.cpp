@@ -6,7 +6,7 @@ using namespace std;
 
 string GetFileName(int argc, char* argv[]) {
 
-	//create an empty string to hold the filename
+	//create 2 empty strings to hold the filename and base file name
 	string baseFileName = "";
 	string fileName = "";
 
@@ -41,7 +41,7 @@ bool isHarshad(int fileNum) {
 	int sum = 0;
 	int lastDig = 0;
 
-	//0 and negative number cant be a hashard 
+	//0 and negative number can't be a hashard 
 	if (fileNum <= 0) {
 		return false;
 	}//if
