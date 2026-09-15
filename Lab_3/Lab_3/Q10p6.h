@@ -13,11 +13,12 @@
 
 class Q10p6
 {
+	//to hold the Q format number 
 private:
 	int16_t Qnum;
 
 public:
-	//explicit constructors with defult conscructor
+	//explicit constructors
 	Q10p6();
 	explicit Q10p6(int integer);
 	explicit Q10p6(float singlePercision);
