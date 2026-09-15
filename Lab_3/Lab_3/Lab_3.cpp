@@ -1,20 +1,67 @@
-// Lab_3.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// Lab_3.cpp : This file contains the 'main' function
 
 #include <iostream>
+#include <cmath> 
+#include<cstdint>
+
+#include "Q10p6.h"
+
+using namespace std;
+
+
+//Test for Q10p6 Class
+//Tests All constructors, Conversions, Arethemetic operations, and Qnum getter 
+// 
+//Constructors: convert int, float, and double to Q10p6 format
+//Conversions: handle Q10p6 back to int, flaot, and double 
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Q10p6 A = Q10p6();
+    Q10p6 B = Q10p6(3);
+    Q10p6 C = Q10p6(1.5f);
+    Q10p6 D = Q10p6(2.25);
+
+
+
+    cout << "Contructors:" << endl;
+    cout << "default: A, " << A.getQnum() << endl;
+    cout << "int to Q10p6: B, 12 = " << B.getQnum() << endl;
+    cout << "float to Q10p6: C, 23.4 = " << C.getQnum() << endl;
+    cout << "double to Q10p6: D, 143.51 = " << D.getQnum() << endl;
+
+
+
+    cout << "Conversion:" << endl;
+    cout << "Q10p6 to int: B,  = " << B.toInt() << endl;
+    cout << "Q10p6 to float: C, 23.4 = " << C.toFloat() << endl;
+    cout << "Q10p6 to double: D, 143.51 = " << D.toDouble() << endl;
+
+    Q10p6 M = Q10p6(0.5);
+    Q10p6 result = Q10p6();
+
+    Q10p6 N = Q10p6(0.5);
+
+
+    cout << "Opertations: " << endl;
+    result = B.operator+(M);
+    cout << "B + M: " << result.getQnum() << endl;
+
+    result = B.operator-(M);
+    cout << "B - M: " << result.getQnum() << endl;
+
+    result = B.operator*(M);
+
+    cout << "B * M: " << result.getQnum() << endl;
+
+    result = B.operator/(M);
+
+    cout << "B / M: " << result.getQnum() << endl;
+
+    
+    cout << "N == M: " << N.operator==(M) << endl;
+
+    cout << "B == M:  " << B.operator==(M) << endl;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file

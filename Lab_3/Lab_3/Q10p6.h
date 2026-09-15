@@ -9,6 +9,7 @@
 
 //class Q10p6 can take an int, float, or a double as a argument and convert it into Q10p6 format
 //toInt, toFloat, and toDouble returns Qnum as a int, float, or a double
+//getQnum returns Qnum as int16
 //class Q10p6 also provided +,-,*,/, and -- operators for Q10p6 formmated numbers
 
 class Q10p6
@@ -25,16 +26,19 @@ public:
 	explicit Q10p6(double doublePercision);
 
 	//Conversions
-	int toInt();
-	float toFloat();
-	double toDouble();
+	int toInt() const;
+	float toFloat() const;
+	double toDouble() const;
+
+	//getter to print Qnum
+	int16_t getQnum();
 
 	//Operators
-	Q10p6 operator+  (Q10p6& rhs);
-	Q10p6 operator-  (Q10p6& rhs);
-	Q10p6 operator*  (Q10p6& rhs);
-	Q10p6 operator/  (Q10p6& rhs);
-	bool  operator==  (Q10p6& rhs);
+	Q10p6 operator+  (const Q10p6& rhs) const;
+	Q10p6 operator-  (const Q10p6& rhs) const;
+	Q10p6 operator*  (const Q10p6& rhs) const;
+	Q10p6 operator/  (const Q10p6& rhs) const;
+	bool  operator==  (const Q10p6& rhs) const;
 };
 
 
