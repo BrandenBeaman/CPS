@@ -31,11 +31,11 @@ public:
 	double toDouble() const;
 
 	//getter to print Qnum
-	int16_t getQnum();
+	int16_t getQnum() const;
 
 	//Operators
 	Q10p6 operator+  (const Q10p6& rhs) const;
-	Q10p6 operator-  (const Q10p6& rhs) const;
+	Q10p6 operator-   (const Q10p6& rhs) const;
 	Q10p6 operator*  (const Q10p6& rhs) const;
 	Q10p6 operator/  (const Q10p6& rhs) const;
 	bool  operator==  (const Q10p6& rhs) const;

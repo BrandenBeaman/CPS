@@ -20,23 +20,23 @@ int main()
 {
     Q10p6 A = Q10p6();
     Q10p6 B = Q10p6(3);
-    Q10p6 C = Q10p6(1.5f);
+    Q10p6 C = Q10p6(0.5f);
     Q10p6 D = Q10p6(2.25);
 
 
 
     cout << "Contructors:" << endl;
     cout << "default: A, " << A.getQnum() << endl;
-    cout << "int to Q10p6: B, 12 = " << B.getQnum() << endl;
-    cout << "float to Q10p6: C, 23.4 = " << C.getQnum() << endl;
-    cout << "double to Q10p6: D, 143.51 = " << D.getQnum() << endl;
+    cout << "int to Q10p6: B, 3 = " << B.getQnum() << endl;
+    cout << "float to Q10p6: C, 0.5 = " << C.getQnum() << endl;
+    cout << "double to Q10p6: D, 2.25 = " << D.getQnum() << endl;
 
 
 
     cout << "Conversion:" << endl;
-    cout << "Q10p6 to int: B,  = " << B.toInt() << endl;
-    cout << "Q10p6 to float: C, 23.4 = " << C.toFloat() << endl;
-    cout << "Q10p6 to double: D, 143.51 = " << D.toDouble() << endl;
+    cout << "Q10p6 to int: B, 3 = " << B.toInt() << endl;
+    cout << "Q10p6 to float: C, 0.5 = " << C.toFloat() << endl;
+    cout << "Q10p6 to double: D, 2.25 = " << D.toDouble() << endl;
 
     Q10p6 M = Q10p6(0.5);
     Q10p6 result = Q10p6();

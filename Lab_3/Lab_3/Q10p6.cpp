@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath> 
 #include<cstdint>
+#include<bit>
 
 #include "Q10p6.h"
 
@@ -16,7 +17,7 @@ Q10p6::Q10p6()
 Q10p6::Q10p6(int integer)
 {
 	
-	int32_t temp = static_cast<int32_t>(integer) << 6; 
+	int32_t temp = static_cast<int32_t>(integer)* 64; 
 	Qnum = static_cast<int16_t>(temp);
 }
 
@@ -31,7 +32,7 @@ Q10p6::Q10p6(float singlePercision)
 Q10p6::Q10p6(double doublePercision)
 {
 	 
-	double scaled = doublePercision * 64.00f;
+	double scaled = doublePercision * 64.00;
 	int32_t temp = static_cast<int32_t>(scaled);
 	Qnum = static_cast<int16_t>(temp);
 }
@@ -46,16 +47,19 @@ int Q10p6::toInt() const
 
 float Q10p6::toFloat() const
 {
-	return static_cast<float>(Qnum) / 64.0f;
+
+	float converted = static_cast<float>(Qnum / 64.0f);
+	return converted;
 }
 
 double Q10p6::toDouble() const
 {
-	return static_cast<double>(Qnum) / 64.00f;
+	double converted = static_cast<double>(Qnum / 64.0);
+	return converted;
 }
 
 //getter
-int16_t Q10p6::getQnum()
+int16_t Q10p6::getQnum ()const
 {
 	int16_t Qform = Qnum;
 	return Qform;
