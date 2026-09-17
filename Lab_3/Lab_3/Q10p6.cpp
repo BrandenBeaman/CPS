@@ -39,27 +39,27 @@ Q10p6::Q10p6(double doublePercision)
 
 
 //Conversions
-int Q10p6::toInt() const
+int Q10p6::toInt()
 {
 
 	return static_cast<int>(Qnum >> 6);
 }
 
-float Q10p6::toFloat() const
+float Q10p6::toFloat()
 {
 
 	float converted = static_cast<float>(Qnum / 64.0f);
 	return converted;
 }
 
-double Q10p6::toDouble() const
+double Q10p6::toDouble()
 {
 	double converted = static_cast<double>(Qnum / 64.0);
 	return converted;
 }
 
 //getter
-int16_t Q10p6::getQnum ()const
+int16_t Q10p6::getQnum ()
 {
 	int16_t Qform = Qnum;
 	return Qform;
@@ -67,21 +67,21 @@ int16_t Q10p6::getQnum ()const
 
 
 //operators
-Q10p6 Q10p6::operator+  (const Q10p6& rhs) const
+Q10p6 Q10p6::operator+  (Q10p6& rhs)
 {
 	Q10p6 result;
 	result.Qnum = static_cast<int16_t>(Qnum + rhs.Qnum);
 	return result;
 }
 
-Q10p6 Q10p6::operator-  (const Q10p6& rhs) const
+Q10p6 Q10p6::operator-  (Q10p6& rhs)
 {
 	Q10p6 result;
 	result.Qnum = static_cast<int16_t>(Qnum - rhs.Qnum);
 	return result;
 }
 
-Q10p6 Q10p6::operator*  (const Q10p6& rhs) const
+Q10p6 Q10p6::operator*  (Q10p6& rhs)
 { 
 	Q10p6 result;
 	int32_t temp = (static_cast<int32_t>(Qnum) >> 2) * (static_cast<int32_t>(rhs.Qnum) >> 4);
@@ -89,7 +89,7 @@ Q10p6 Q10p6::operator*  (const Q10p6& rhs) const
 	return result;
 }
 
-Q10p6 Q10p6::operator/  (const Q10p6& rhs) const
+Q10p6 Q10p6::operator/  (Q10p6& rhs)
 {
 	Q10p6 result;
 	int32_t num = static_cast<int32_t>(Qnum);
@@ -99,7 +99,7 @@ Q10p6 Q10p6::operator/  (const Q10p6& rhs) const
 	return result;
 }
 
-bool Q10p6::operator==  (const Q10p6& rhs) const
+bool Q10p6::operator==  (Q10p6& rhs)
 {
 	if ((Qnum - rhs.Qnum) == 0) {
 		return true;

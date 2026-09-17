@@ -26,19 +26,19 @@ public:
 	explicit Q10p6(double doublePercision);
 
 	//Conversions
-	int toInt() const;
-	float toFloat() const;
-	double toDouble() const;
+	int toInt();
+	float toFloat();
+	double toDouble();
 
 	//getter to print Qnum
-	int16_t getQnum() const;
+	int16_t getQnum();
 
 	//Operators
-	Q10p6 operator+  (const Q10p6& rhs) const;
-	Q10p6 operator-   (const Q10p6& rhs) const;
-	Q10p6 operator*  (const Q10p6& rhs) const;
-	Q10p6 operator/  (const Q10p6& rhs) const;
-	bool  operator==  (const Q10p6& rhs) const;
+	Q10p6 operator+  (Q10p6& rhs);
+	Q10p6 operator-   (Q10p6& rhs);
+	Q10p6 operator*  (Q10p6& rhs);
+	Q10p6 operator/  (Q10p6& rhs);
+	bool  operator==  (Q10p6& rhs);
 };
 
 
