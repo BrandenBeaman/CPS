@@ -28,7 +28,7 @@ int passenger::SetCabinNumber(string Val)
 		// return -1 for invalid cabin number 
 	if ((X == 'P') || (X == 'C') || (X == 'S')) {
 
-		for (int i = 2; i < 4; i++) {
+		for (int i = 2; i < 5; i++) {
 			if (isdigit(Val[i])) {
 				count++;
 			}//if
@@ -39,12 +39,12 @@ int passenger::SetCabinNumber(string Val)
 			return 0; 
 		}
 		else {
-			return -1;
+			return 1;
 		}
 
 	}//if
 	else {
-		return -1;
+		return 2;
 
 	}// else
 }// SetCabinNumber

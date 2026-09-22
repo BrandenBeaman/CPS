@@ -1,20 +1,76 @@
 // Lab_4.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+
 
 #include <iostream>
+#include <vector>
+#include <string>
+    
+#include "passenger.h"
+#include "Manifest.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    int select;
+    int codeAdd; 
+    int codeRemove;
+    int codeCN;
+
+    string first;
+    string last;
+    string cNum;
+
+    passenger ThePassenger;
+    Manifest TheManifest;
+
+    while (1) {
+        cout << endl;
+        cout << "1: create a passenger" << endl;
+        cout << "2: add a passenger to the Manifest" << endl;
+        cout << "3: remove recently added passenger from Manifest " << endl;
+        cout << "4: Print Stats and Manifest " << endl;
+
+
+        cin >> select;
+
+        if (select == 1) {
+            cout << "Enter Passenger's Cabin number(X - NNN)" << endl;
+            cin >> cNum;
+            codeCN = ThePassenger.SetCabinNumber(cNum);
+            
+             if (codeCN == 1){
+                cout << "Cabin Number invalid" << endl;
+            }
+            else if (codeCN == 2) {
+                cout << "Cabin Letter invalid" << endl;
+            }
+            cout << "Enter Passenger's First Name" << endl;
+            cin >> first;            
+            ThePassenger.SetFirstName(first);
+            cout << "Enter Passenger's Last Name" << endl; 
+            cin >> last;
+            ThePassenger.SetLastName(last);
+
+             cout << "Passenger: " << first << " " << last << " " << cNum << " created!" << endl;
+        }
+
+        if (select == 2) {
+           
+             codeAdd = TheManifest.AddPassenger(ThePassenger); 
+             cout << codeAdd << endl;
+        }
+
+        if (select == 3) {
+            codeRemove = TheManifest.RemovePassenger(ThePassenger);
+            cout << codeRemove << endl;
+        }
+        
+        if (select == 4) {
+            TheManifest.Print();
+        }
+
+
+    }
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
