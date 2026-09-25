@@ -41,10 +41,15 @@ int main()
             
              if (codeCN == 1){
                 cout << "Cabin Number invalid" << endl;
+                continue;
             }
             else if (codeCN == 2) {
                 cout << "Cabin Letter invalid" << endl;
+                continue;
+                
             }
+
+
             cout << "Enter Passenger's First Name" << endl;
             cin >> first;            
             ThePassenger.SetFirstName(first);
