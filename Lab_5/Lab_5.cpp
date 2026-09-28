@@ -1,20 +1,55 @@
 // Lab_5.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
 
 #include <iostream>
+#include <string>
+#include "Vehicle.h"
+#include "GasVehicle.h"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	string make;
+	string model;
+	int year;
+
+	GasVehicle car;
+
+	while (1) {
+		cout << "input car info, Year Make Model" << endl;
+		cin >> make;
+		cin >> model;
+		cin >> year;
+
+		cout << "setting car info.." << endl;
+		cout << car.SetVehicleInfo(make, model, year) << endl;
+
+		string make2;
+		string model2;
+		int year2;
+		
+		cout << "displaying car info.." << endl;
+
+		car.GetVehicleInfo(make2, model2, year2);
+
+		cout << "Make: " << make2 << " Model: " << model2 << " Year: " << year2 << endl;
+
+		float FC = 0;
+		float EFF = 0;
+
+		GasVehicle GasCar;
+
+		Vehicle* ptr;
+
+		cout << "Enter FC and EFF" << endl;
+		cin >> FC;
+		cin >> EFF;
+
+		GasCar.SetGasVehicleInfo(FC, EFF);
+
+		ptr = &GasCar;
+		
+		cout << "Displaying Gas Car information: " << ptr->GetVehicleSpecs() << endl;
+	}
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
