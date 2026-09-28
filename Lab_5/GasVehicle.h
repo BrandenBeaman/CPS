@@ -14,7 +14,7 @@ private:
 
 public:
 	GasVehicle();// explcit constructor to initalize data memebrs 
-	int SetGasVehicleInfo(float userFuelCap, float userEff);
+	int SetGasVehicleInfo(string userFuelCap, string userEff);
 	string GetVehicleSpecs();
 };
 

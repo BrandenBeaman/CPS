@@ -4,12 +4,8 @@
 
 using namespace std;
 
-Vehicle::Vehicle()
-{
-	Year = 0;
-}
 
-int Vehicle::SetVehicleInfo(string userMake, string userModel, int userYear)
+int Vehicle::SetVehicleInfo(string userMake, string userModel, string userYear)
 {
 	Make  = userMake;
 	Model = userModel;
@@ -17,7 +13,7 @@ int Vehicle::SetVehicleInfo(string userMake, string userModel, int userYear)
 	return 0;
 }
 
-void Vehicle::GetVehicleInfo(string& userMake, string& userModel, int& userYear)
+void Vehicle::GetVehicleInfo(string& userMake, string& userModel, string& userYear)
 {
 	userMake  = Make;
 	userModel = Model;

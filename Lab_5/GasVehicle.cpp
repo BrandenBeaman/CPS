@@ -11,10 +11,13 @@ GasVehicle::GasVehicle()
 	 Efficiency = 0.0;   
 }
 
-int GasVehicle::SetGasVehicleInfo(float userFuelCap, float userEff) 
+int GasVehicle::SetGasVehicleInfo(string userFuelCap, string userEff) 
 {
-	FuelCapacity = userFuelCap;
-	Efficiency = userEff;
+	float FC = stof(userFuelCap);
+	float EFF = stof(userEff);
+
+	FuelCapacity = FC;
+	Efficiency = EFF;
 	return 0;
 }
 
@@ -28,8 +31,8 @@ string GasVehicle::GetVehicleSpecs()
 	ostringstream specs;
 
 	specs << propulsionType << " "
-		 << fixed << setprecision(2) << NewFuelCap << " "
-		 << fixed << setprecision(2) << NewEff;
+		 << fixed << setprecision(1) << NewFuelCap << " "
+		 << fixed << setprecision(1) << NewEff;
 
 	
 	return specs.str();

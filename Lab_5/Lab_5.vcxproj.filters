@@ -24,6 +24,12 @@
     <ClCompile Include="GasVehicle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ElectricVehicle.h">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ElectricVehicle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vehicle.h">
@@ -32,5 +38,10 @@
     <ClInclude Include="GasVehicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Inventory.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

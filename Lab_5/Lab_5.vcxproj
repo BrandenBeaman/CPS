@@ -123,6 +123,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ElectricVehicle.cpp" />
+    <ClCompile Include="ElectricVehicle.h" />
     <ClCompile Include="GasVehicle.cpp" />
     <ClCompile Include="Lab_5.cpp" />
     <ClCompile Include="Vehicle.cpp" />
@@ -130,6 +132,9 @@
   <ItemGroup>
     <ClInclude Include="GasVehicle.h" />
     <ClInclude Include="Vehicle.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Inventory.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
