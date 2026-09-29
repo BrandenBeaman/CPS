@@ -136,7 +136,7 @@ int main(int argc, char* argv[])
             string currentMake, currentModel, currentYear;
 
 
-            for (int i = 0; i < NumVehicles - 1; i++) 
+            for (int i = 0; i < NumVehicles; i++) 
             {
                 Database[i] -> GetVehicleInfo(currentMake, currentModel, currentYear);
                 if(currentMake == DesiredMake)
@@ -166,7 +166,7 @@ int main(int argc, char* argv[])
             int count = 0;
             string currentMake, currentModel, currentYear;
 
-            for (int i = 0; i < NumVehicles - 1; i++)
+            for (int i = 0; i < NumVehicles; i++)
             {
                 Database[i]->GetVehicleInfo(currentMake, currentModel, currentYear);
                 if (currentModel == DesiredModel)
@@ -175,6 +175,7 @@ int main(int argc, char* argv[])
                         << currentModel << " "
                         << currentYear << " "
                         << Database[i]->GetVehicleSpecs() << endl;
+                    count++;
                 }// if
             }// for
 
@@ -198,7 +199,7 @@ int main(int argc, char* argv[])
             int count = 0;
             string currentMake, currentModel, currentYear;
 
-            for (int i = 0; i < NumVehicles - 1; i++)
+            for (int i = 0; i < NumVehicles; i++)
             {
                 Database[i]->GetVehicleInfo(currentMake, currentModel, currentYear);
                 
@@ -208,6 +209,7 @@ int main(int argc, char* argv[])
                         << currentModel << " "
                         << currentYear << " "
                         << Database[i]->GetVehicleSpecs() << endl;
+                    count++;
                 }// if
             }// for
             if (count == 0)
