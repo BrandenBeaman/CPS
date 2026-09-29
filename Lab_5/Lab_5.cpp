@@ -15,6 +15,8 @@
 #include "GasVehicle.h"
 #include "ElectricVehicle.h"
 
+using namespace std;
+
 int main(int argc, char* argv[])
 {
     // The inventory file
@@ -83,10 +85,13 @@ int main(int argc, char* argv[])
         else if (EngineType == "EV")
         {
             // Instantiate an electric Propulsion car object
-
+            ElectricVehicle* electricCar = new ElectricVehicle();
             // Set the fields
+            electricCar -> SetVehicleInfo(Make, Model, Year);
+            electricCar->SetElectricVehicleInfo(Capacity, Efficiency);
 
             // Insert the Electric car into the database
+            Database[NumVehicles] = electricCar;
         } // if...if...else()
         else
         {
@@ -127,6 +132,28 @@ int main(int argc, char* argv[])
 
             // Search the database
             // Print out matching entries
+            int count = 0;
+            string currentMake, currentModel, currentYear;
+
+
+            for (int i = 0; i < NumVehicles - 1; i++) 
+            {
+                Database[i] -> GetVehicleInfo(currentMake, currentModel, currentYear);
+                if(currentMake == DesiredMake)
+                {
+                    cout << currentMake  << " " 
+                         << currentModel << " "
+                         << currentYear  << " " 
+                         << Database[i]->GetVehicleSpecs() << endl;
+                    count++;
+                }// if
+            }// for
+
+            if (count == 0)
+            {
+                cout << "No vehicles found in DataBase with Make: " << DesiredMake << endl;
+            }
+            
             break;
         } // case 'a' or 'A'
         case 'o': case 'O': // Search by Model
@@ -136,8 +163,26 @@ int main(int argc, char* argv[])
             std::cout << "Enter Model > ";
             std::cin >> DesiredModel;
 
-            // Search the database
-            // Print out matching entries
+            int count = 0;
+            string currentMake, currentModel, currentYear;
+
+            for (int i = 0; i < NumVehicles - 1; i++)
+            {
+                Database[i]->GetVehicleInfo(currentMake, currentModel, currentYear);
+                if (currentModel == DesiredModel)
+                {
+                    cout << currentMake << " "
+                        << currentModel << " "
+                        << currentYear << " "
+                        << Database[i]->GetVehicleSpecs() << endl;
+                }// if
+            }// for
+
+            if (count == 0)
+            {
+                cout << "No vehicles found in DataBase with Model: " << DesiredModel << endl;
+            }
+
             break;
         } // case 'o' or 'O'
         case 'y': case 'Y': // Search by Year
@@ -146,9 +191,30 @@ int main(int argc, char* argv[])
             int DesiredYear;
             std::cout << "Enter Year > ";
             std::cin >> DesiredYear;
+            string sDesiredYear = to_string(DesiredYear);
 
             // Search the database
             // Print out matching entries
+            int count = 0;
+            string currentMake, currentModel, currentYear;
+
+            for (int i = 0; i < NumVehicles - 1; i++)
+            {
+                Database[i]->GetVehicleInfo(currentMake, currentModel, currentYear);
+                
+                if (currentYear == sDesiredYear)
+                {
+                    cout << currentMake << " "
+                        << currentModel << " "
+                        << currentYear << " "
+                        << Database[i]->GetVehicleSpecs() << endl;
+                }// if
+            }// for
+            if (count == 0)
+            {
+                cout << "No vehicles found in DataBase with Year: " << sDesiredYear << endl;
+            }
+
             break;
         } // case 'y' or 'Y'
         case 'q': case 'Q': // Exit the program

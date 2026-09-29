@@ -11,10 +11,13 @@ ElectricVehicle::ElectricVehicle()
 	Efficiency = 0.0;
 }
 
-int ElectricVehicle::SetElectricVehicleInfo(float userEnergyCap, float userEff)
+int ElectricVehicle::SetElectricVehicleInfo(string userEnergyCap, string userEff)
 {
-	EnergyCapacity = userEnergyCap;
-	Efficiency = userEff;
+	float FC = stof(userEnergyCap);
+	float EFF = stof(userEff);
+
+	EnergyCapacity = FC;
+	Efficiency = EFF;
 	return 0;
 }
 
